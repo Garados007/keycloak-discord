@@ -58,6 +58,15 @@ public class DiscordIdentityProviderConfig extends OAuth2IdentityProviderConfig 
         return Collections.emptySet();
     }
 
+    public boolean getAddDescriminator() {
+        String setting = getConfig().get("addDescriminator");
+        return setting != null && (setting == "true" || setting == "on");
+    }
+
+    public void setAddDescriminator(boolean value) {
+        getConfig().put("addDescriminator", value ? "true" : "false");
+    }
+
     public void setPrompt(String prompt) {
         getConfig().put("prompt", prompt);
     }
